@@ -1,8 +1,10 @@
 package com.user.controller;
 
+import com.user.client.BookingDTO;
 import com.user.model.User;
 import com.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -24,8 +26,8 @@ public class UserController {
     }
 
     @PostMapping("/book/{userId}/{movieId}")
-    public String bookTickets(@PathVariable("userId") long userId, @PathVariable("movieId") long movieId,
-                               @RequestParam("seats") int seats){
+    public ResponseEntity<BookingDTO> bookTickets(@PathVariable("userId") long userId, @PathVariable("movieId") long movieId,
+                                                  @RequestParam("seats") int seats){
         System.out.println("userID : "+ userId);
         return userService.bookTicket(userId, movieId, seats);
     }

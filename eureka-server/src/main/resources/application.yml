@@ -1,0 +1,22 @@
+server:
+  port: 7761
+
+eureka:
+  instance:
+    registryFetchIntervalSeconds: 15
+    leaseRenewalIntervalInSeconds: 3
+    leaseExpirationDurationInSeconds: 5
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    healthcheck:
+      enabled: false
+    serviceUrl:
+      defaultZone: http://localhost:7761/eureka
+  server:
+    renewalPercentThreshold: 0.0
+    enableSelfPreservation: false
+
+spring:
+  application:
+    name: discovery-service-v1

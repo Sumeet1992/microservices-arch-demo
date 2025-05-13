@@ -2,7 +2,7 @@ server:
   port: 8002
 spring:
   application:
-    name: course-service
+    name: user-service-v1
   datasource:
     url: jdbc:postgresql://localhost:5432/testdb
     driver-class-name: org.postgresql.Driver
@@ -18,6 +18,14 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7761/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 10
 
 
 
