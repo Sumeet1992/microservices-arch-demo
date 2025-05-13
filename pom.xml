@@ -20,6 +20,7 @@
         <module>user-service</module>
         <module>movie-service</module>
         <module>eureka-server</module>
+        <module>gateway-service</module>
     </modules>
 
     <dependencyManagement>
@@ -35,11 +36,6 @@
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>3.3.9</version>
-        </dependency>
         <dependency>
             <groupId>jakarta.persistence</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
