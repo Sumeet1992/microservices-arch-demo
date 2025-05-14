@@ -61,7 +61,7 @@ public class AuthController {
         }
     }
 
-    @GetMapping("validate")
+    @GetMapping("/validate")
     public String validateToken(@RequestParam("token") String token){
         authenticationService.validateToken(token);
         return "Token is Valid";
