@@ -27,7 +27,13 @@ public class UserController {
 
     @PostMapping("/book/{userId}/{movieId}")
     public ResponseEntity<BookingDTO> bookTickets(@PathVariable("userId") long userId, @PathVariable("movieId") long movieId,
-                                                  @RequestParam("seats") int seats){
+                                                  @RequestParam("seats") int seats,
+                                                @RequestHeader("loggedInUser") String loggedInUser){
+//        the loggedInUser header is the customized header passed from the AuthenticationFilter of the gateway service.
+//        This way the individual microservice can know for which user the request has come
+//        And extra logic like throttling based on the user can be applied using this information.
+        System.out.println("THE LOGGED IN USER IS : "+ loggedInUser);
+
         System.out.println("userID : "+ userId);
         return userService.bookTicket(userId, movieId, seats);
     }

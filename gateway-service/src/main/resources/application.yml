@@ -15,11 +15,20 @@ spring:
           uri: lb://user-service-v1
           predicates:
             - Path=/users/**
+          filters:
+            - AuthenticationFilter
 
         - id: movie-service-v1
           uri: lb://movie-service-v1
           predicates:
             - Path=/movies/**
+          filters:
+            - AuthenticationFilter
+
+        - id: identity-service-v1
+          uri: lb://identity-service-v1
+          predicates:
+            - Path=/auth/**
   main:
     web-application-type: reactive  # This is added to ignore the conflict with spring mvc
 eureka:

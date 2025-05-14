@@ -21,6 +21,7 @@
         <module>movie-service</module>
         <module>eureka-server</module>
         <module>gateway-service</module>
+        <module>identity-service</module>
     </modules>
 
     <dependencyManagement>
